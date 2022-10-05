@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web</title>
+    
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+    <div class="page-container">
+        <header>
+            <div>Bài tập 1 - 20120161</div>
+        </header>
+        <nav id="nav-menu">
+            <div>Menu 1</div><div>Menu 2</div><div>Menu 3</div><div>Menu 4</div><div>Menu 5</div>
+        </nav>
+        <hr>
+        <div class = "body-container">
+           <div class="main-container">
+                <div class="DKHP">ĐĂNG KÝ HỌC PHẦN</div>
+                <hr style="width: 100%;"> 
+                <form id="form">
+                    <div><label for="txtMaSo">Mã số: </label><input type = "text" id="txtMaSo" name="txtMaSo" value="" size="50" required></div>
+                    <div><label for="txtHovaten">Họ và tên: </label><input type = "text" id="txtHovaten" name="txtHovaten" value="" size="50" required></div>
+                    <div><label for="txtDiachi">Địa chỉ: </label><input type = "text" id="txtDiachi" name="txtDiachi" value="" size="50" required></div>
+                    <div><label for="txtDienthoai">Điện thoại: </label><input type = "text" id="txtDienthoai" name="txtDienthoai" value="" size="50" required></div>
+                    <div>
+                        <label for="radGioitinh">Giới tính: </label>
+                        <input type="radio" name="radGioitinh" value="Nam" required>Nam 
+                        <input type="radio" name="radGioitinh" value="Nữ">Nữ 
+                    </div>
+                    <div><label for="txtNgaysinh">Ngày sinh: </label><input type = "date" id="txtNgaysinh" name="txtNgaysinh" value="" size="50" placeholder="mm/dd/yyyy" required></div>
+                    <div><label for="txtEmail">Email: </label><input type = "text" id="txtEmail" name="txtEmail" value="" size="50" required></div>
+                </form>
+                <div class="subjectList">
+                    <fieldset id="left">
+                        <legend><b>Các môn học</b></legend>
+                        <ol id="notchoose">
+                            <li id="oop">Lập trình hướng đối tượng</li>
+                            <li id="dsa">Cấu trúc dữ liệu</li>
+                            <li id="cnpm">NM Công nghệ phần mềm</li>
+                            <li id="ai">Trí tuệ nhân tạo</li>
+                            <li id="web">Phát triển ứng dụng web</li>
+                            <li id="dtb">Cơ sở dữ liệu</li>
+                            <li id="nmlt">Nhập môn lập trình</li>
+                            <li id="ktlt">Kỹ thuật lập trình</li>
+                            <li id="win">Lập trình windows</li>
+                            <li id="jv">Lập trình ứng dụng Java</li>
+                        </ol>
+                    </fieldset>
+                    <div class="btnContainer">
+                        <button id="choose" class="btnMove"> &gt;</button>
+                        <button id="chooseall" class="btnMove"> >&gt;</button>
+                        <button id="return" class="btnMove"> &lt;</button>
+                        <button id="returnall" class="btnMove"> &lt;&lt;</button>
+                    </div>
+                    <fieldset id="right">
+                        <legend><b>Các môn học đã chọn</b></legend>
+                        <ol id="choosen"></ol>
+                    </fieldset>
+                </div>
+                <hr>
+                <div class="table-container">
+                    <table id="table">
+                        <tr>
+                            <th>Mã số</th>
+                            <th>Họ và tên</th>
+                            <th>Giới tính</th>
+                            <th>Ngày sinh</th>
+                        </tr>
+                    </table>
+                </div>
+                <div style="align-self: center;">
+                    <button id="btnSignin">Đăng ký</button>
+                    <button id="btnRs">Xóa hết</button>
+                </div>
+            </div>
+            <div class="verticalLine"></div>
+            <div class="side">
+                <div id="accordion">
+                    <div class="group"><h3>NEWS 01</h3>
+                        <div>
+                            content content content content content content content content content content 
+                        </div>
+                    </div>
+                    <div class="group"><h3>NEWS 02</h3>
+                        <div>
+                            content content content content content content content content content content 
+                        </div>
+                    </div>
+                    <div class="group"><h3>NEWS 03</h3>
+                        <div>
+                            content content content content content content content content content content 
+                        </div>
+                    </div>
+                    <div class="group"><h3>NEWS 04</h3>
+                        <div>
+                            content content content content content content content content content content 
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <hr >
+        <footer id="footer-menu">
+            <div class="footer_content">Copyright © &lt;RieMie&gt; </div>
+            <div class="footer_content">Menu 1</div>
+            <div style="color: orange;">|</div>
+            <div class="footer_content">Menu 2</div>
+            <div style="color: orange;">|</div>
+            <div class="footer_content">Menu 3</div>
+            <div style="color: orange;">|</div>
+            <div class="footer_content">Menu 4</div>
+            <div style="color: orange;">|</div>
+            <div class="footer_content">Menu 5</div>
+        </footer>
+    </div>
+</body>
+</html>

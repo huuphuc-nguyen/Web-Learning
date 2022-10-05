@@ -1,0 +1,215 @@
+html, body {
+    margin: 10px;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.page-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* cho tất cả Header, Body, Footer căn giữa */
+}
+
+header{
+    background-color: #36DDDD;
+    background-image: linear-gradient(to bottom right, #51afaf, #36DDDD);
+    height: 6em;
+    width: 100%;
+    max-width: 1200px;
+    box-shadow: 2px 3px 10px black;
+    border-radius: 10px;
+}
+
+header div{
+    font-size: 30pt;
+    font-weight: 900;
+    letter-spacing: 5pt;
+    text-align: center;
+    line-height: 2.5em;
+    color: #baf1ef;
+    text-shadow: 1px 0px 4px black;
+} 
+nav{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    min-width: max-content;
+    max-width: 600px;
+    height: 2em;
+    background-color: #acf0ec;
+    box-shadow: 2px 3px 10px black;
+    margin-top: -0.5em;
+    border-radius: 10px;
+}
+nav div{
+    color: #5da1e0;
+}
+
+nav div:hover {
+    font-size: larger;
+    color: whitesmoke;
+} 
+
+#nav-menu .ui-selected {
+    font-size: larger;
+    color: rgb(4, 59, 122);
+}  
+#nav-menu .ui-selecting{
+    font-size: larger;
+    color: whitesmoke;
+}  
+
+hr{
+    border: 1px solid #5da1e0;
+    margin-top: 1em;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.verticalLine {
+    border-left: 2px solid #5da1e0;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    height: auto;
+}
+
+.body-container{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    max-width: 1200px;
+    width: 100%;
+}
+.main-container{
+    display:flex;
+    flex-direction: column;
+    height: auto;
+    flex-grow: 1; 
+}
+.side{
+    height: auto;
+    width: 360px;
+}
+
+.DKHP{
+    color: orange;
+    size: 30pt;
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: 0.5pt;
+}
+
+.subjectList{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+fieldset{
+    margin: 20px;
+    flex-grow: 1;
+    height: auto;
+}
+
+ol {
+    list-style-type: none;
+}
+
+li {
+    border: 1px solid black;
+    margin-bottom: 3px;
+    padding: 5px;
+}
+
+#notchoose .ui-selecting { background: #FECA40; }
+#notchoose .ui-selected { background: #F39814; color: white; }
+#notchoose li {
+    background-color: #CDCBCA;
+}
+
+#choosen .ui-selecting { background: #FECA40; }
+#choosen .ui-selected { background: #F39814; color: white; }
+#choosen li {
+    background-color: #FFF95B;
+}
+
+.btnContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btnMove{
+   margin-bottom: 10px;
+   background-color: transparent;
+   border: 1px solid orange;
+   border-radius: 5px;
+   font-size: 15pt;
+    color: #5da1e0;
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(247, 223, 193);
+    height: 1.5em;
+    width:100%;
+    min-width: max-content;
+    max-width: 1200px;
+    border-radius: 5px;
+    box-shadow: 2px 3px 10px black;
+    margin-top: 10px;
+    border: 2pt solid orange;
+    justify-content: center;
+}
+.footer_content {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: orange;
+    text-decoration: underline;
+    font-weight: 300;
+}
+
+.footer_content:hover{
+    font-size: larger;
+    color: rgb(151, 132, 108);
+}
+
+#footer-menu .ui-selected{
+    font-size: larger;
+    color: rgb(146, 86, 7);
+}
+
+#footer-menu .ui-selecting{
+    font-size: larger;
+    color: rgb(151, 132, 108);
+}
+
+form{
+    text-align: right;
+}
+form div {
+    margin-bottom: 10px;
+}
+
+table {
+    width:100%;
+    max-width: 1200px;
+    border-spacing: 5px;
+    margin:5px auto;
+    text-align: center;
+}
+
+th{
+    color: white;
+    background-color: orange;
+}
+
+tr:nth-child(odd){
+    background-color: antiquewhite;
+}
