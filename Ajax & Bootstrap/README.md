@@ -15,4 +15,4 @@ Practicing ajax and bootstrap: Creating a **Table** having **pagination** with d
 - Html.
 - Css.
 - Javascript.
-- jQuery/.
+- jQuery.
