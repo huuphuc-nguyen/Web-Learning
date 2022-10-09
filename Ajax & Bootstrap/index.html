@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap & Ajax</title>
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            font-size: 1.1em;
+        }
+        footer {
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px;
+        }
+        table {
+            font-size: 0.65em;
+        }
+    </style>
+    <script>
+        async function loadData(){
+            const rq1 = await fetch("https://reqres.in/api/users?page=1")
+            const rs1 = await rq1.text()
+            listUser = $.parseJSON(rs1).data
+
+            const rq2 = await fetch("https://reqres.in/api/users?page=2")
+            const rs2 = await rq2.text()
+            listUser2 = $.parseJSON(rs2).data
+            
+            Array.prototype.push.apply(listUser,listUser2)
+            
+            // create table
+            // https://www.youtube.com/watch?v=mslD-bpvjiU
+            //1
+            var state = {
+                'querySet':listUser,
+                'page':1,
+                'rows':2,
+            }
+
+            //4
+            buildTable()
+
+            //2
+            function pagination(querySet,page,rows){
+                var trimStart = (page-1)*rows
+                var trimEnd = trimStart + rows
+
+                var trimmedData = querySet.slice(trimStart,trimEnd)
+
+                var pages = Math.ceil(querySet.length/rows)
+
+                return {
+                    'querySet': trimmedData,
+                    'pages': pages
+                }
+            }
+
+            //5
+            function pageButtons(pages){
+                var wrapper = $("#pagination-wrapper")
+                var markup = ""
+
+                for (var page = 1; page <= pages; page ++) {
+                    markup += `<button value=${page} class="page btn btn-lg btn-info m-1">${page}</button>`
+                }
+
+                wrapper.html(markup);
+
+                $('.page').on('click',function(){
+                    $("#dataTable tbody").empty()
+
+                    state.page = $(this).val()
+                    
+                    buildTable()
+                })
+            }
+
+            //3
+            function buildTable(){
+                var data = pagination(state.querySet,state.page,state.rows)
+
+                myList = data.querySet
+
+                $.each(myList,function(index,user){
+                    let markup = 
+                    `<tr>
+                        <td>${user.id}</td>
+                        <td>${user.first_name}</td>
+                        <td>${user.last_name}</td>
+                        <td>${user.email}</td>
+                        <td>
+                            <image src="${user.avatar}" style="height: 150px; width: 150px; object-fit: contain">
+                        </td>
+                    </tr>`
+                    
+                    $("#dataTable tbody").append(markup)
+                })
+                //6
+                pageButtons(data.pages)
+            }
+        }
+        
+        $(document).ready(function(){
+            loadData()
+        })
+    </script>
+</head>
+<body> 
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Home</a>
+              <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+        </nav>
+        <div class="row justify-content-center">
+            <div class="card col-3 border p-0 m-3">
+                <div class="card-header bg-primary text-white">Header</div>
+                <div class="card-body">
+                  <p>side content</p>
+                </div>
+            </div>
+            <div class="card col-8  border p-0 m-3">
+                <div class="card-header bg-primary text-white">Main title</div>
+                <div class="card-body">
+                    
+                    <table 
+                        id="dataTable" 
+                        class="table table-hover m-0 table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th class="col-sm-1">#</th>
+                                <th class="col-sm-2">First name</th>
+                                <th class="col-sm-2">Last name</th>
+                                <th class="col-sm-0">Email</th>
+                                <th class="col-sm-2">Avatar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body"></tbody>
+                    </table>
+
+                    <div class="container">
+                        <div id="pagination-wrapper"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            bottom
+        </footer>
+    </div>
+</body>
+</html>
